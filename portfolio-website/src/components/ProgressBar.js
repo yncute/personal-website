@@ -1,9 +1,14 @@
 import React, { useState, useRef } from "react";
+import { useScrollContext } from "./ScrollProvider";
 
 const ProgressBar = () => {
-  const [progress, setProgress] = useState(0); //0-100
+  const { scrollRatio, setScrollRatio } = useScrollContext();
   const [isClicked, setIsClicked] = useState(false);
   const progressBarRef = useRef(null);
+
+  const normalize = (value) => {
+    return Math.min(Math.max(value * 100, 0), 100);
+  };
 
   const handleMouseDown = (e) => {
     setIsClicked(true);
@@ -13,7 +18,13 @@ const ProgressBar = () => {
         Math.max(0, e.clientX - rect.left),
         rect.width
       );
-      setProgress((newProgress / rect.width) * 100);
+      const newScrollRatio = newProgress / rect.width;
+      setScrollRatio(newScrollRatio);
+      //console.log(`progress:${progress / 100}`);
+
+      const totalScrollableWidth =
+        document.documentElement.scrollWidth - window.innerWidth;
+      window.scrollTo({ left: newScrollRatio * totalScrollableWidth });
     };
 
     updateProgress(e);
@@ -42,7 +53,7 @@ const ProgressBar = () => {
         className={`${
           isClicked ? "bg-green-500" : "bg-white"
         } h-full rounded-full group-hover:bg-green-500 relative`}
-        style={{ width: `${progress}%` }}
+        style={{ width: `${normalize(scrollRatio)}%` }}
       >
         <div
           className={`absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full ${
