@@ -43,7 +43,7 @@ export const ScrollProvider = ({ children }) => {
 
   return (
     <ScrollContext.Provider value={{ scrollRatio, setScrollRatio }}>
-      <p>{`Scroll Ratio: ${scrollRatio.toFixed(2)}`}</p>
+      {/* <p>{`Scroll Ratio: ${scrollRatio.toFixed(2)}`}</p> */}
       {children}
     </ScrollContext.Provider>
   );

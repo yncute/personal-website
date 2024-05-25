@@ -46,12 +46,12 @@ const ProgressBar = () => {
   return (
     <div
       ref={progressBarRef}
-      className="w-2/5 bg-gray-200 rounded-full h-1 dark:bg-gray-700 group relative "
+      className="w-2/5 bg-gray rounded-full h-1 dark:bg-gray-700 group relative "
       onMouseDown={handleMouseDown}
     >
       <div
         className={`${
-          isClicked ? "bg-green-500" : "bg-white"
+          isClicked ? "bg-green" : "bg-white"
         } h-full rounded-full group-hover:bg-green-500 relative`}
         style={{ width: `${normalize(scrollRatio)}%` }}
       >
