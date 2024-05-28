@@ -9,13 +9,33 @@ import SongCard from "./components/SongCard";
 import HorizontalScrollContainer from "./components/HorizontalScrollContainer";
 import FullScreenContainer from "./components/FullScreenContainer";
 
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ProjectsPage from "./pages/ProjectsPage";
+import SkillsPage from "./pages/SkillsPage";
+import EducationPage from "./pages/EducationPage";
+import ContactPage from "./pages/ContactPage";
+
 function App() {
   const containerRefs = [
+    useRef(null),
+    // useRef(null),
     useRef(null),
     useRef(null),
     useRef(null),
     useRef(null),
   ];
+
+  const pages = [
+    <HomePage></HomePage>,
+    // <AboutPage></AboutPage>,
+    <ProjectsPage></ProjectsPage>,
+    <SkillsPage></SkillsPage>,
+    <EducationPage></EducationPage>,
+    <ContactPage></ContactPage>,
+  ];
+
+  const songCards = [0, 1, 2, 3, 4];
 
   //Scroll to the container at index
   const handleSongCardClick = (index) => {
@@ -35,16 +55,20 @@ function App() {
       <ScrollProvider>
         <div className="flex flex-row">
           <NavBar>
-            <SongCard img={0} onClick={() => handleSongCardClick(0)}></SongCard>
-            <SongCard img={1} onClick={() => handleSongCardClick(1)}></SongCard>
-            <SongCard img={2} onClick={() => handleSongCardClick(2)}></SongCard>
-            <SongCard img={3} onClick={() => handleSongCardClick(3)}></SongCard>
+            {songCards.map((index) => (
+              <SongCard
+                img={index}
+                key={index}
+                onClick={() => handleSongCardClick(index)}
+              ></SongCard>
+            ))}
           </NavBar>
           <HorizontalScrollContainer>
-            <FullScreenContainer ref={containerRefs[0]}></FullScreenContainer>
-            <FullScreenContainer ref={containerRefs[1]}></FullScreenContainer>
-            <FullScreenContainer ref={containerRefs[2]}></FullScreenContainer>
-            <FullScreenContainer ref={containerRefs[3]}></FullScreenContainer>
+            {pages.map((page, index) => (
+              <FullScreenContainer ref={containerRefs[index]}>
+                {page}
+              </FullScreenContainer>
+            ))}
           </HorizontalScrollContainer>
         </div>
 

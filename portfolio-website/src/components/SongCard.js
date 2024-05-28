@@ -3,13 +3,15 @@ import { IoSchoolOutline } from "react-icons/io5";
 import { IoHomeOutline } from "react-icons/io5";
 import { IoHammerOutline } from "react-icons/io5";
 import { IoHandRightOutline } from "react-icons/io5";
+import { BiMessage } from "react-icons/bi";
 
 const SongCard = ({ img, onClick }) => {
   const icons = [
-    <IoHomeOutline className="size-9/12"></IoHomeOutline>,
-    <IoHammerOutline className="size-9/12"></IoHammerOutline>,
-    <IoHandRightOutline className="size-9/12"></IoHandRightOutline>,
-    <IoSchoolOutline className="size-9/12"></IoSchoolOutline>,
+    <IoHomeOutline className="size-9/12"></IoHomeOutline>, //home
+    <IoHammerOutline className="size-9/12"></IoHammerOutline>, //projects
+    <IoHandRightOutline className="size-9/12"></IoHandRightOutline>, //interests
+    <IoSchoolOutline className="size-9/12"></IoSchoolOutline>, //education
+    <BiMessage className="size-9/12"></BiMessage>, //contact
   ];
 
   return (
