@@ -1,7 +1,5 @@
 import React from "react";
 import ProjectCard from "../components/ProjectCard";
-import MyLunaPicCrop from "../assets/MyLunaPicCrop.png";
-import WaveFrontPic from "../assets/WaveFrontPic.png";
 
 const ProjectsPage = () => {
   return (
@@ -17,7 +15,7 @@ const ProjectsPage = () => {
           description={
             "Make tracking your macros fun by raising your virtual pet with the food you log! Share your progress with friends and keep each other in check!"
           }
-          imageUrl={MyLunaPicCrop}
+          imageUrl="/assets/MyLunaPicCrop.png"
           githubLink={
             "https://github.com/Homestuck126/Luna-Avocado?tab=readme-ov-file"
           }
@@ -28,7 +26,7 @@ const ProjectsPage = () => {
           description={
             "Class project to help a mock ship dock handle manifests optimally. Uses A* Search with different heuristics to calculate steps to move shipment containers to and from the ship and dock."
           }
-          imageUrl={WaveFrontPic}
+          imageUrl="/assets/WaveFrontPic.png"
           githubLink={"https://github.com/minsooerickim/wavefrontsolutions"}
         ></ProjectCard>
       </div>

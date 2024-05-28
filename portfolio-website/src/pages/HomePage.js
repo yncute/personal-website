@@ -1,5 +1,4 @@
 import React from "react";
-import MeCrop from "../assets/MeCrop.png";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 
@@ -12,7 +11,7 @@ const HomePage = () => {
 
       <div className="flex flex-col items-center justify-center w-[80vw] h-full ">
         <img
-          src={MeCrop}
+          src="/assets/MeCrop.png"
           alt="Me"
           className="size-[30vh] object-contain rounded-full border-white border-8"
         ></img>

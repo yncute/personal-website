@@ -1,6 +1,5 @@
 import React from "react";
 import Education from "../components/Education";
-import UCRLogo from "../assets/UCRLogo.png";
 
 const EducationPage = () => {
   return (
@@ -10,7 +9,7 @@ const EducationPage = () => {
       </h1>
       <div className="mt-[20vh]">
         <Education
-          imageSrc={UCRLogo}
+          imageSrc="/assets/UCRLogo.png"
           degree={"Bachelor's in Computer Science"}
           university={"University of California Riverside"}
           graduationDate={"June 2023"}
